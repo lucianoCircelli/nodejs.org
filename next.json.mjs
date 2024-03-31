@@ -1,15 +1,14 @@
 'use strict';
 
-// This is the static Site Configuration
-import siteConfig from './site.json' assert { type: 'json' };
+import _siteNavigation from './navigation.json' assert { type: 'json' };
+import _siteRedirects from './redirects.json' assert { type: 'json' };
+import _siteConfig from './site.json' assert { type: 'json' };
 
-// This is the static Site Navigation (legacy website)
-import siteNavigation from './navigation.json' assert { type: 'json' };
+/** @type {import('./types').SiteNavigation} */
+export const siteNavigation = _siteNavigation;
 
-// This is the Website i18n Configuration
-import localeConfig from './i18n/config.json' assert { type: 'json' };
+/** @type {Record<string, Array<import('./types').Redirect>>} */
+export const siteRedirects = _siteRedirects;
 
-// This is the generated blog data for the Node.js Website
-import blogData from './public/blog-posts-data.json' assert { type: 'json' };
-
-export { siteConfig, siteNavigation, localeConfig, blogData };
+/** @type {import('./types').SiteConfig} */
+export const siteConfig = _siteConfig;

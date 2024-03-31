@@ -1,14 +1,24 @@
 export interface RSSFeed {
   file: string;
   title: string;
+  category: string;
   description?: string;
-  blogCategory?: string;
 }
 
-export interface WebsiteBanner {
+interface WithRange {
   startDate: string;
   endDate: string;
-  text?: string;
-  html?: string;
+}
+
+export interface WebsiteBanner extends WithRange {
+  text: string;
+  link?: string;
+  type?: 'default' | 'warning' | 'error';
+}
+
+export interface WebsiteBadge extends WithRange {
+  text: string;
   link: string;
+  title?: string;
+  kind?: 'default' | 'warning' | 'error';
 }

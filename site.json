@@ -1,14 +1,8 @@
 {
   "title": "Node.js",
   "description": "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
-  "featuredImage": "/static/images/logo-hexagon-card.png",
   "favicon": "/static/images/favicons/favicon.png",
   "accentColor": "#333",
-  "og": {
-    "imgType": "image/png",
-    "imgWidth": "224",
-    "imgHeight": "256"
-  },
   "twitter": {
     "username": "@nodejs",
     "card": "summary",
@@ -18,7 +12,8 @@
   "rssFeeds": [
     {
       "title": "Node.js Blog",
-      "file": "blog.xml"
+      "file": "blog.xml",
+      "category": "all"
     },
     {
       "title": "Node.js Blog: Releases",
@@ -33,10 +28,20 @@
   ],
   "websiteBanners": {
     "index": {
-      "startDate": "2023-06-20T14:30:00.000Z",
-      "endDate": "2023-06-27T00:00:00.000Z",
-      "text": "Security releases now available",
-      "link": "https://nodejs.org/en/blog/vulnerability/june-2023-security-releases/"
+      "startDate": "2024-03-28T13:45:00.000Z",
+      "endDate": "2024-04-11T17:30:00.000Z",
+      "text": "New security releases to be made available April 3rd, 2024",
+      "link": "https://nodejs.org/en/blog/vulnerability/april-2024-security-releases/"
+    }
+  },
+  "websiteBadges": {
+    "index": {
+      "startDate": "2024-03-24T13:34:50.449Z",
+      "endDate": "2024-03-31T13:34:50.449Z",
+      "kind": "default",
+      "title": "New Blog Post",
+      "text": "Diving into the Node.js Website Redesign",
+      "link": "https://nodejs.org/en/blog/announcements/diving-into-the-nodejs-website-redesign"
     }
   }
 }

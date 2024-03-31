@@ -3,26 +3,43 @@ updates:
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
-      interval: weekly
-      day: friday
+      interval: monthly
+    labels:
+      - 'github_actions:pull-request'
+    commit-message:
+      prefix: meta
     open-pull-requests-limit: 10
   - package-ecosystem: npm
     directory: '/'
     versioning-strategy: increase
     schedule:
-      interval: weekly
-      day: friday
+      interval: monthly
+    labels:
+      - 'github_actions:pull-request'
     commit-message:
       prefix: meta
     groups:
+      lint:
+        patterns:
+          - '@typescript-eslint/*'
+          - 'eslint'
+          - 'eslint-*'
+          - 'stylelint'
+          - 'stylelint-*'
+        exclude-patterns:
+          - 'eslint-plugin-storybook'
       storybook:
         patterns:
           - 'storybook'
           - '@storybook/*'
-      testing-library:
+          - 'eslint-plugin-storybook'
+      testing:
         patterns:
           - '@testing-library/*'
           - '@types/testing-library*'
+          - '@types/jest'
+          - 'jest'
+          - 'jest-*'
       next-js:
         patterns:
           - 'next'
@@ -31,15 +48,25 @@ updates:
           - 'next-sitemap'
           - 'next-themes'
           - '@vercel/*'
-      remark-mdx:
+      mdx:
         patterns:
           - '@vcarl/remark-headings'
-          - 'remark-gfm'
           - '@mdx-js/*'
+          - 'rehype-*'
+          - 'remark-*'
       react:
         patterns:
           - 'react'
           - 'react-dom'
           - '@types/react'
           - '@types/react-dom'
+      tailwind:
+        patterns:
+          - '@savvywombat/tailwindcss-grid-areas'
+          - 'prettier-plugin-tailwindcss'
+          - 'tailwindcss'
+    ignore:
+      # Manually update major versions of @types/node with the version specified within .nvmrc
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
     open-pull-requests-limit: 10

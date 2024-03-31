@@ -1,47 +1,39 @@
-import NextImage from 'next/image';
-import { SiteProvider } from '../providers/siteProvider';
-import { ThemeProvider } from '../providers/themeProvider';
-import { LocaleProvider } from '../providers/localeProvider';
-import { openSans } from '../util/nextFonts';
-import type { Preview } from '@storybook/react';
+import { NextIntlClientProvider } from 'next-intl';
 
-import '../styles/index.scss';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
+import { NotificationProvider } from '@/providers/notificationProvider';
+import { STORYBOOK_MODES, STORYBOOK_SIZES } from '@/.storybook/constants';
+import type { Preview, ReactRenderer } from '@storybook/react';
+
+import englishLocale from '@/i18n/locales/en.json';
+
+import '../next.fonts';
+import '../styles/index.css';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
-    nextjs: {
-      router: {
-        basePath: '',
-      },
-    },
-    backgrounds: { disable: true },
+    nextjs: { router: { basePath: '' }, appDirectory: true },
+    chromatic: { modes: STORYBOOK_MODES },
+    viewport: { defaultViewport: 'large', viewports: STORYBOOK_SIZES },
   },
+  decorators: [
+    Story => (
+      <NextIntlClientProvider
+        locale="en"
+        timeZone="Etc/UTC"
+        messages={englishLocale}
+      >
+        <NotificationProvider viewportClassName="absolute top-0 left-0 list-none">
+          <Story />
+        </NotificationProvider>
+      </NextIntlClientProvider>
+    ),
+    withThemeByDataAttribute<ReactRenderer>({
+      themes: { light: '', dark: 'dark' },
+      defaultTheme: 'light',
+      attributeName: 'data-theme',
+    }),
+  ],
 };
-
-export const decorators = [
-  Story => (
-    <SiteProvider>
-      <LocaleProvider>
-        <ThemeProvider font={openSans.style.fontFamily}>
-          <div data-test-id="story-root">
-            <Story />
-          </div>
-        </ThemeProvider>
-      </LocaleProvider>
-    </SiteProvider>
-  ),
-];
-
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: props => <NextImage {...props} unoptimized />,
-});
 
 export default preview;

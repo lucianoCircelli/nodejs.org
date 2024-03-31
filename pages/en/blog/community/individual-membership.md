@@ -1,10 +1,8 @@
 ---
-title: Node.js Foundation Individual Membership Now Open
-date: 2015-11-04T12:00:00.000Z
-status: publish
+date: '2015-11-04T12:00:00.000Z'
 category: community
-slug: individual-membership-nodejs-foundation
-layout: blog-post.hbs
+title: Node.js Foundation Individual Membership Now Open
+layout: blog-post
 author: mikeal
 ---
 
@@ -40,9 +38,9 @@ However, in the first election two representatives will be elected; the represen
 
 ## When is the election?
 
-* Nominations are being solicited until January 15th.
-* A ballot will be distributed on January 20th.
-* The election will be completed by January 30th.
+- Nominations are being solicited until January 15th.
+- A ballot will be distributed on January 20th.
+- The election will be completed by January 30th.
 
 ## How do I run in the 2016 election?
 

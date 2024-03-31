@@ -1,11 +1,9 @@
 ---
-title: Notes from the Road
-author: tjfontaine
-date: 2014-06-11T16:00:00.000Z
-status: publish
+date: '2014-06-11T16:00:00.000Z'
 category: uncategorized
-slug: notes-from-the-road
-layout: blog-post.hbs
+title: Notes from the Road
+layout: blog-post
+author: tjfontaine
 ---
 
 ## Notes from the Road

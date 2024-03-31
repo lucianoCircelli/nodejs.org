@@ -1,21 +1,17 @@
+'use client';
+
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import { MotionConfig } from 'framer-motion';
 import type { FC, PropsWithChildren } from 'react';
 
-type ThemeProviderProps = PropsWithChildren<{ font: string }>;
+import { THEME_STORAGE_KEY } from '@/next.constants.mjs';
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({ children, font }) => (
-  <>
-    <NextThemeProvider enableSystem={true} enableColorScheme={true}>
-      <MotionConfig reducedMotion="user">{children}</MotionConfig>
-    </NextThemeProvider>
-
-    <style jsx global>
-      {`
-        body {
-          font-family: ${font};
-        }
-      `}
-    </style>
-  </>
+export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => (
+  <NextThemeProvider
+    attribute="data-theme"
+    defaultTheme="system"
+    storageKey={THEME_STORAGE_KEY}
+    enableSystem={true}
+  >
+    {children}
+  </NextThemeProvider>
 );

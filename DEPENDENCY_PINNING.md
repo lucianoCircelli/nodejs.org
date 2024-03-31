@@ -1,6 +1,6 @@
 ## Dependency Pinning
 
-Based on the initial discussions from [this discussion thread](https://github.com/nodejs/nodejs.org/discussions/5491), we've decided to use a more strict strategy for handling NPM dependencies within the Node.js Website.
+Based on the initial discussions from [this discussion thread](https://github.com/nodejs/nodejs.org/discussions/5491), we've decided to use a more strict strategy for handling npm dependencies within the Node.js Website.
 
 The intent here is to prevent the build process, or the website itself, from breaking due to changes in dependencies. As some dependencies do not respect semantic versioning, this is a real concern. Pinning dependencies also ensures that we stay fixed on a specific dependency version. For security updates, Dependabot is still configured to give us security alerts when specific dependencies got security advisories.
 
@@ -31,5 +31,7 @@ When adding dependencies, you should consider if that dependency should be saved
 This document intends to outline the strategy we have when adding dependencies. We also recommend that Team members only add new dependencies when explicitly needed. The more dependencies, the harder it gets to review and understand the complexity of the Website Application. You can avoid adding new dependencies if possible.
 
 Manual updates should be avoided. Dependabot is configured for updating our dependencies. Updating a dependency is only needed if the update breaks the current `semver` constraint. In these situations, good judgement should be used (as a dependency should generally only be updated in these scenarios if the updated version brings new features desired by the team).
+
+An exception to the manual rule is the version of Node.js defined within `.nvmrc`, and the corresponding `@types/node` dependency. The `@types/node` semver MAJOR version should be kept in sync with the version of Node.js the site is built with.
 
 Lastly, in general, a Pull Request should not contain `package-lock.json` changes, nor changes to dependencies on `package.json`.

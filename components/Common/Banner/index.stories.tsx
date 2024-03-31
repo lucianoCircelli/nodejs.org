@@ -1,50 +1,38 @@
-import Banner from './index';
 import type { Meta as MetaObj, StoryObj } from '@storybook/react';
+
+import Banner from '@/components/Common/Banner';
 
 type Story = StoryObj<typeof Banner>;
 type Meta = MetaObj<typeof Banner>;
 
-const addDaysToDate = (numDays: number, date: Date) => {
-  const newDate = new Date(date);
-  newDate.setDate(date.getDate() + numDays);
-  return newDate;
-};
-
-// Create mock start and end dates as Banner Component renders
-// only if end date is on or after today's date
-const startDate = new Date();
-const endDate = addDaysToDate(3, startDate);
-
-export const WithText: Story = {
+export const Default: Story = {
   args: {
-    bannersIndex: {
-      startDate: startDate.toISOString(),
-      endDate: endDate.toISOString(),
-      text: 'Banner Text',
-      link: 'https://nodejs.org/en/',
-    },
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    type: 'default',
+    link: 'https://github.com/openjs-foundation/summit/issues/360',
   },
 };
 
-export const WithHTML: Story = {
+export const Error: Story = {
   args: {
-    bannersIndex: {
-      startDate: startDate.toISOString(),
-      endDate: endDate.toISOString(),
-      html: '<p>Banner HTML</p>',
-      link: 'https://nodejs.org/en/',
-    },
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    type: 'error',
+    link: 'https://github.com/nodejs/nodejs.org/issues/4495',
   },
 };
 
-export const WithHTMLImage: Story = {
+export const Warning: Story = {
   args: {
-    bannersIndex: {
-      startDate: startDate.toISOString(),
-      endDate: endDate.toISOString(),
-      html: '<img src="/static/images/nodejs-training.png" alt="Banner Image" />',
-      link: 'https://nodejs.org/en/',
-    },
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    type: 'warning',
+    link: 'https://github.com/nodejs/nodejs.org/issues/4495',
+  },
+};
+
+export const NoLink: Story = {
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    type: 'default',
   },
 };
 

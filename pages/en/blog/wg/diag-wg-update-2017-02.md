@@ -1,11 +1,9 @@
 ---
-title: Diag WG Update - Many new tools, phasing out some old ones
-author: Josh Gavant (@joshgav)
-date: 2017-02-28T08:00:00.000Z
+date: '2017-02-28T08:00:00.000Z'
 category: wg
-status: publish
-slug: diag-wg-update-2017-02
-layout: blog-post.hbs
+title: Diag WG Update - Many new tools, phasing out some old ones
+layout: blog-post
+author: 'Josh Gavant (@joshgav)'
 ---
 
 In surveys and discussions with Node.js users we consistently hear of your need
@@ -17,10 +15,10 @@ Based on that feedback and thanks to contributions and collaboration from across
 our community, over the past year several experimental diagnostic APIs and tools
 have landed in Node itself and the Node.js Foundation, including:
 
-* [async_hooks][] for sharing context across async boundaries
-* [Inspector][] and [node-inspect][] for stepping and profiling
-* [Trace Controller][] for gathering and streaming traces from V8 and Node
-* [node-report][] and [llnode][] for post-mortem analysis
+- [async_hooks][] for sharing context across async boundaries
+- [Inspector][] and [node-inspect][] for stepping and profiling
+- [Trace Controller][] for gathering and streaming traces from V8 and Node
+- [node-report][] and [llnode][] for post-mortem analysis
 
 Over the coming months we'll continue to improve the [stability][] of these projects
 and hope to eventually graduate some from experimental state with your help and
@@ -68,7 +66,7 @@ Thank you!
 
 [async_hooks]: https://github.com/nodejs/node/pull/8531
 [CLI debugger]: https://nodejs.org/docs/v7.6.0/api/debugger.html
-[Debugging - Getting Started]: https://nodejs.org/en/docs/guides/debugging-getting-started/
+[Debugging - Getting Started]: /learn/getting-started/debugging
 [diag-agenda]: https://github.com/search?q=org%3Anodejs+label%3A%22diag-agenda%22&type=Issues
 [Diagnostics WG]: https://github.com/nodejs/diagnostics/issues
 [Inspector API]: https://chromedevtools.github.io/debugger-protocol-viewer/v8/

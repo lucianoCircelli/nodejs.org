@@ -1,4 +1,4 @@
-import type { RSSFeed, WebsiteBanner } from './features';
+import type { RSSFeed, WebsiteBadge, WebsiteBanner } from './features';
 
 export interface TwitterConfig {
   username: string;
@@ -18,9 +18,11 @@ export interface SiteConfig {
   description: string;
   featuredImage: string;
   favicon: string;
-  accentColor: string;
+  lightAccentColor: string;
+  darkAccentColor: string;
   og: OGConfig;
   twitter: TwitterConfig;
   rssFeeds: Array<RSSFeed>;
   websiteBanners: Record<string, WebsiteBanner>;
+  websiteBadges: Record<string, WebsiteBadge>;
 }
